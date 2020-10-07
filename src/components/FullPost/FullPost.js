@@ -5,16 +5,26 @@ import './FullPost.css';
 class FullPost extends Component {
     render () {
         let post = <p>Please select a Post!</p>;
-        post = (
-            <div className="FullPost">
-                <h1>Title</h1>
-                <p>Content</p>
-                <div className="Edit">
-                    <button className="Delete">Delete</button>
+        if(this.props.postId){
+            let selectedPost = [];
+            this.props.posts.forEach(element => {
+                if(element.id == this.props.postId){
+                    selectedPost = element
+                }
+            });
+            
+            post = (
+                <div className="FullPost">
+                    <h1>{selectedPost.title}</h1>
+                    <p>{selectedPost.body}</p>
+                    <div className="Edit">
+                        <button className="Delete">Delete</button>
+                    </div>
                 </div>
-            </div>
-
-        );
+    
+            );
+        }
+       
         return post;
     }
 }
