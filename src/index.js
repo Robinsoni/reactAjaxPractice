@@ -6,6 +6,11 @@ import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios'
 
 
+// Setting the defualt configuration using axios
+//axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+//axios.defaults.headers.common['Authorization'] = 'Auth Token';
+//axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 axios.interceptors.request.use(request => {
     console.log(request);
     return request;
