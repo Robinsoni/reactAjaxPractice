@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Post from '../../components/Post/Post';
 import Posts from '../Blog/Posts/Posts'
+import NewPosts from './NewPost/NewPost'
 import './Blog.css';
 import {Route} from 'react-router-dom'
 class Blog extends Component {
@@ -21,14 +22,17 @@ class Blog extends Component {
                                 <a href='/'>Home</a>
                             </li>
                             <li>
-                            <a href='/'>New Post</a>
+                            <a href='/new-posts'>New Post</a>
                             </li>
                             
                         </ul>
                     </nav>
                 </header>
-               <Route path='/' exact render = {() => <h1>Home</h1>}/>
-                
+{/*               <Route path='/' exact render = {() => <h1>Home</h1>}/>
+*/}         
+                <Route path ='/' exact component={Posts}/>
+                <Route path ='/new-posts' exact component={NewPosts}/>              
+              
             </div>
         );
     }
