@@ -17,6 +17,9 @@ class NewPost extends Component {
         axios.post('https://jsonplaceholder.typicode.com/todos/',data)
             .then(response => console.log(response))
     }
+    componentDidMount(){
+        console.log(this.props)
+    }
     render () {
         return (
             <div className="NewPost">
