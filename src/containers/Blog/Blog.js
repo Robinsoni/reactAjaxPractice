@@ -3,7 +3,7 @@ import axios from 'axios';
 import Post from '../../components/Post/Post';
 import Posts from '../Blog/Posts/Posts'
 import './Blog.css';
-
+import {Route} from 'react-router-dom'
 class Blog extends Component {
 
    
@@ -27,7 +27,7 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-               <Posts />
+               <Route path='/' exact render = {() => <h1>Home</h1>}/>
                 
             </div>
         );
