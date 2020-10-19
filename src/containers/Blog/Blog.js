@@ -4,7 +4,7 @@ import Post from '../../components/Post/Post';
 import Posts from '../Blog/Posts/Posts'
 import NewPosts from './NewPost/NewPost'
 import './Blog.css';
-import {Route, Link} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
 class Blog extends Component {
 
    
@@ -19,14 +19,15 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/">Home</Link>
+{/*You can also setup the activeStyle and
+do active styling*/}      <NavLink to="/" exact activeClassName = "active">Home</NavLink>
                             </li>
                             <li>
-                            <Link to={{
+                            <NavLink to={{
                                     pathname:'/new-posts',
                                     hash:       '#submit',
                                     search:     '?fast-submit=true'
-                            }}>New Post</Link>
+                            }} exact>New Post</NavLink>
                             </li>
                             
                         </ul>
