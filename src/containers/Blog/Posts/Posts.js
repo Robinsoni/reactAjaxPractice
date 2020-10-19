@@ -26,17 +26,23 @@ class Posts extends Component{
     }
 
     showPostHandler = (id) => {
-        this.setState({selectedPostId:id})
+        //this.setState({selectedPostId:id})
+        this.props.history.push({pathname: '/' + id})
+      //  this.props.history.push({ '/' + id})
+
     }
     render(){
         const post =  this.state.posts.map(post => {
             //console.log(post.title); return
-             return (<Link to={"/"+ post.id} key={post.id} ><Post 
-                
+            {/* <Link to={"/"+ post.id}  > */}
+             return (
+                 <Post 
+                key={post.id}
                 title = {post.title} 
                 author = {post.author} 
                 click = {() => this.showPostHandler(post.id)}
-                /></Link>)
+                />)
+                {/* </Link> */}
          })
         return(
             <section className="Posts">
