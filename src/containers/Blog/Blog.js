@@ -5,6 +5,7 @@ import Posts from '../Blog/Posts/Posts'
 import NewPosts from './NewPost/NewPost'
 import './Blog.css';
 import {Route, NavLink} from 'react-router-dom'
+import Fullposts from '../Blog/FullPost/FullPost'
 class Blog extends Component {
 
    
@@ -36,6 +37,7 @@ do active styling*/}      <NavLink to="/" exact activeClassName = "active">Home<
 {/*               <Route path='/' exact render = {() => <h1>Home</h1>}/>
 */}         
                 <Route path ='/' exact component={Posts}/>
+                <Route path ='/:id' exact component={Fullposts}/>              
                 <Route path ='/new-posts' exact component={NewPosts}/>              
               
             </div>

@@ -7,9 +7,10 @@ class FullPost extends Component {
         selectedPost:null
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
+        console.log(this.props.match.params.id)
         if(!this.state.selectedPost || (this.state.selectedPost.id !==this.props.postId)){
-            axios.get('https://jsonplaceholder.typicode.com/todos/' + this.props.postId)
+            axios.get('https://jsonplaceholder.typicode.com/todos/' + this.props.match.params.id)
             .then(Response => {if(Response.data.id){
                 this.setState({selectedPost:Response.data})
             }})
