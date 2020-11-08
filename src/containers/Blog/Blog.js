@@ -21,7 +21,7 @@ class Blog extends Component {
                         <ul>
                             <li>
 {/*You can also setup the activeStyle and
-do active styling*/}      <NavLink to="/" exact activeClassName = "active">Home</NavLink>
+do active styling*/}      <NavLink to="/posts/" exact activeClassName = "active">Home</NavLink>
                             </li>
                             <li>
                             <NavLink to={{
@@ -37,9 +37,8 @@ do active styling*/}      <NavLink to="/" exact activeClassName = "active">Home<
 {/*               <Route path='/' exact render = {() => <h1>Home</h1>}/>
 */}         
             <Switch>
-                <Route path ='/' exact component={Posts}/>
-                <Route path ='/new-posts' exact component={NewPosts}/>              
-                <Route path ='/:id' exact component={Fullposts}/>              
+                <Route path ='/new-posts'  component={NewPosts}/>
+                <Route path ='/posts'  component={Posts}/>              
             </Switch>
             </div>
         );

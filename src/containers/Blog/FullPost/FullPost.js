@@ -8,18 +8,25 @@ class FullPost extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props.match.params.id)
-        if(!this.state.selectedPost || (this.state.selectedPost.id !==this.props.postId)){
+    
+        this.loadData();
+        
+    }
+    loadData(){
+        if(!this.state.selectedPost || (this.state.selectedPost.id !== +this.props.match.params.id)){
             axios.get('https://jsonplaceholder.typicode.com/todos/' + this.props.match.params.id)
             .then(Response => {if(Response.data.id){
                 this.setState({selectedPost:Response.data})
             }})
         }
     }
+    componentDidUpdate(){
+        this.loadData();
+    }
     render () {
         let post = <p>Please select a Post!</p>;
         
-        if(this.props.postId){
+        if(this.props.match.params.id){
             post = <p style={{textAlign:'center'}} >Loading ...!</p>
 
         }
