@@ -8,7 +8,9 @@ import {Route, NavLink, Switch, Redirect} from 'react-router-dom'
 import Fullposts from '../Blog/FullPost/FullPost'
 class Blog extends Component {
 
-   
+   state={
+       auth:false
+   }
     
     render () {
        
@@ -37,9 +39,10 @@ do active styling*/}      <NavLink to="/posts/" exact activeClassName = "active"
 {/*               <Route path='/' exact render = {() => <h1>Home</h1>}/>
 */}         
             <Switch>
-                <Route path ='/new-posts'  component={NewPosts}/>
-                <Route path ='/posts'  component={Posts}/>      
-                <Redirect from = "/" to = "/posts"/>        
+                {(this.state.auth)?<Route path ='/new-posts'  component={NewPosts}/>:null}
+                <Route path ='/posts'  component={Posts}/> 
+                <Route render = {() => <h1>Not Found</h1>} />     
+                {/* <Redirect from = "/" to = "/posts"/> */}        
             </Switch>
             </div>
         );
