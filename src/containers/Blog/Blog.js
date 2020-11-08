@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Post from '../../components/Post/Post';
 import Posts from '../Blog/Posts/Posts'
-import NewPosts from './NewPost/NewPost'
+
 import './Blog.css';
 import {Route, NavLink, Switch, Redirect} from 'react-router-dom'
 import Fullposts from '../Blog/FullPost/FullPost'
+import asyncComponents from '../../hoc/asyncComponent';
+//import NewPosts from './NewPost/NewPost' // we want to load this dynamically
+const AsyncNewPost = asyncComponents(() => {
+    return import('./NewPost/NewPost');
+});
 class Blog extends Component {
 
    state={
-       auth:false
+       auth:true
    }
     
     render () {
@@ -39,7 +44,7 @@ do active styling*/}      <NavLink to="/posts/" exact activeClassName = "active"
 {/*               <Route path='/' exact render = {() => <h1>Home</h1>}/>
 */}         
             <Switch>
-                {(this.state.auth)?<Route path ='/new-posts'  component={NewPosts}/>:null}
+                {(this.state.auth)?<Route path ='/new-posts'  component={AsyncNewPost}/>:null}
                 <Route path ='/posts'  component={Posts}/> 
                 <Route render = {() => <h1>Not Found</h1>} />     
                 {/* <Redirect from = "/" to = "/posts"/> */}        
