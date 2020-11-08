@@ -4,7 +4,7 @@ import Post from '../../components/Post/Post';
 import Posts from '../Blog/Posts/Posts'
 import NewPosts from './NewPost/NewPost'
 import './Blog.css';
-import {Route, NavLink, Switch} from 'react-router-dom'
+import {Route, NavLink, Switch, Redirect} from 'react-router-dom'
 import Fullposts from '../Blog/FullPost/FullPost'
 class Blog extends Component {
 
@@ -38,7 +38,8 @@ do active styling*/}      <NavLink to="/posts/" exact activeClassName = "active"
 */}         
             <Switch>
                 <Route path ='/new-posts'  component={NewPosts}/>
-                <Route path ='/posts'  component={Posts}/>              
+                <Route path ='/posts'  component={Posts}/>      
+                <Redirect from = "/" to = "/posts"/>        
             </Switch>
             </div>
         );
